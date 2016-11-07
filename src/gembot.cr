@@ -1,5 +1,9 @@
+require "dotenv"
 require "./gembot/*"
 
-module Gembot
-  # TODO Put your code here
-end
+Dotenv.load
+config = Gembot::Config.from_yaml(File.read("./config.yml"))
+config.token = ENV["TOKEN"]
+
+bot = Gembot::Bot.new(config)
+bot.run
