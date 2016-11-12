@@ -12,6 +12,7 @@ module Gembot
     # Map in properties from config.yml
     YAML.mapping(
       prefix: String,
+      debug: Bool,
     )
   end
 end

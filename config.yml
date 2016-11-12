@@ -1,1 +1,2 @@
-prefix: '!'
+prefix: '~'
+debug: true
