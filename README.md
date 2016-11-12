@@ -1,15 +1,17 @@
 # gembot
-TODO: Write a description here
+A simple, high-performance [Discord](https://discord.gg) bot, written in Crystal (a compiled, typed Ruby spinoff).
 
 ## Installation
-TODO: Write installation instructions here
+Install Crystal and Shards (the package manager).
 
+Compiling gembot is then as simple as running `make`.
 
 ## Usage
-TODO: Write usage instructions here
+Export your bot token and client id as environment variables to `$TOKEN` and `$CLIENT_ID`,
+or put them in the `.env` file, which will be loaded as well, with environment variables taking precedence.
 
 ## Development
-TODO: Write development instructions here
+TODO: write section.
 
 ## Contributing
 
@@ -21,4 +23,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- Erin ([barzamin](https://github.com/barzamin))- creator, maintainer
+- Erin ([barzamin](https://github.com/barzamin)) - creator, maintainer
