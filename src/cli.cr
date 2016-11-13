@@ -8,6 +8,6 @@ config.token = ENV["TOKEN"]
 config.client_id = ENV["CLIENT_ID"].to_u64
 
 bot = Gembot::Bot.new(config)
-bot.plugins << Gembot::Plugins::Utilities.new
+bot.plugins << Gembot::Plugins::Utilities.new(bot)
 bot.load_plugins!
 bot.run!
