@@ -6,7 +6,7 @@ module Gembot
       description ":gay_pride_flag: Colored names and role givemes"
 
       register_commands do
-        command "color <color name>", description: "give a user a colored role. create it if it does not exist."
+        command "color <color name|color hex>", description: "give a user a colored role, creating it if nonexistent"
         on_message cmatching: "color" do |c, m|
           color = m.content.split(' ')[1]
           if color.starts_with? '#'
