@@ -3,7 +3,7 @@ require "../gembot"
 module Gembot
   module Plugins
     class Utilities < Gembot::Plugin
-      description "various useful utilities"
+      description ":tools: various useful utilities"
 
       register_commands do
         command "ping", description: "replies with pong and the response time to process/send the message"
