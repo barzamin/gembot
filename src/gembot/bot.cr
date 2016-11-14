@@ -6,13 +6,14 @@ module Gembot
     property plugins
 
     property client
+    property cache
 
     def initialize(@config : Config)
       @client = Discord::Client.new(token: @config.token, client_id: @config.client_id)
       @cache = Discord::Cache.new(@client)
       @client.cache = @cache
 
-      @rclient = RClient.new(@client)
+      @rclient = RClient.new(@client, @cache)
 
       @plugins = [] of Plugin
       @handlers = {} of Symbol => Array(Handler)

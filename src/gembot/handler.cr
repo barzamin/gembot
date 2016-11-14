@@ -24,7 +24,7 @@ module Gembot
   end
 
   class RClient
-    def initialize(@client : Discord::Client)
+    def initialize(@client : Discord::Client, @cache : Discord::Cache)
     end
 
     def reply(to : Discord::Message, text)
