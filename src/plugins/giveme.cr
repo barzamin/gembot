@@ -35,7 +35,7 @@ module Gembot
           end
 
           unless color.starts_with? '#'
-            c.reply!(m, "Setting your color to #{color}/`#%x`" % hex)
+            c.reply!(m, "Setting your color to #{color}/`#%06x`" % hex)
           else
             c.reply!(m, "Setting your color to #{color}")
           end
