@@ -7,7 +7,7 @@ module Gembot
 
     def self.generate_plugin_help(config, plugin : Plugin) : String
       "⟹ #{plugin.class.name}: #{plugin.description}\n" \
-        + plugin.commands.map { |n, o| "   • **#{config.prefix}#{n}** ➩ #{o[:description]}" }.join("\n")
+        + plugin.commands.map { |n, o| "   » **#{config.prefix}#{n}** ➩ #{o[:description]}" }.join("\n")
     end
   end
 end
