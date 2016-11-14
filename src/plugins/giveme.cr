@@ -6,10 +6,13 @@ module Gembot
       description ":gay_pride_flag: Colored names and role givemes"
 
       register_commands do
-        command "color <color name|color hex>", description: "give a user a colored role, creating it if nonexistent"
+        command "color <color name|color hex|`help` for list of colors>", description: "give a user a colored role, creating it if nonexistent"
         on_message cmatching: "color" do |c, m|
           color = m.content.split(' ')[1]
-          if color.starts_with? '#'
+          if color == "help"
+            c.dm(m.author, "Possible colors are:\n" + COLOR_TABLE.map {|k, v| k}.join(", "))
+            next
+          elsif color.starts_with? '#'
             value = color[1..-1].to_u32?(base: 16)
             if value.nil?
               c.reply!(m, "Hex value malformed or out of range [0x000000...0xffffff]")
