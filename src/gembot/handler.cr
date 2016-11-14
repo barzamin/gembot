@@ -5,6 +5,9 @@ module Gembot
     alias HandlerCallback = Proc(RClient, EventData, Nil)
     getter etype
     getter callback
+    getter allow_pm
+
+    @allow_pm = false
 
     def initialize(@etype : Symbol, @condition : Regex?, @callback : HandlerCallback)
     end

@@ -41,8 +41,10 @@ module Gembot
             end
 
             hs.each do |h|
-              if h.triggered? payload
-                h.callback.call @rclient, payload
+              unless @cache.resolve_channel(payload.channel_id).guild_id == nil || h.allow_pm
+                if h.triggered? payload
+                  h.callback.call @rclient, payload
+                end
               end
             end
           end
