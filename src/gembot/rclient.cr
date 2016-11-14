@@ -11,6 +11,10 @@ module Gembot
       @client.create_message(to.channel_id, mention(to.author) + ": " + text)
     end
 
+    def dm(to : Discord::User, text)
+      @client.create_message(@client.create_dm(to.id).id, text)
+    end
+
     def create_role(guild : Discord::Guild, name : String?)
       role = @client.create_guild_role(guild.id)
       unless name.nil?
