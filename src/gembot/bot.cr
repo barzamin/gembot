@@ -53,8 +53,23 @@ module Gembot
       end
     end
 
+    @status_messages = ["with Crystal", "v#{Gembot::VERSION}"]
+    def update_status(delay)
+      i = 1
+      spawn do
+        loop do
+          sleep delay
+
+          @client.status_update(idle_since: nil,
+            game: Discord::GamePlaying.new(name: @status_messages[i]))
+          i = (i+1) % @status_messages.size
+        end
+      end
+    end
+
     # Kick off the main Discord event loop
     def run!
+      update_status(10.seconds)
       @client.run
     end
   end
