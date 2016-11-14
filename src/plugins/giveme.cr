@@ -28,8 +28,8 @@ module Gembot
           color_role_name = m.author.username
           guild = c.guild_of(m)
           role = c.fetch_or_create_role(guild, name: color_role_name)
-          @bot.client.modify_guild_role(guild_id: guild.id, role_id: role.id, name: color_role_name, colour: hex,
-            permissions: role.permissions, position: nil, hoist: nil)
+          role.colour = hex
+          c.update_role(guild, role)
           unless c.get_member(guild, m.author).roles.includes? role.id
             c.role_add_user(guild, role, m.author)
           end
